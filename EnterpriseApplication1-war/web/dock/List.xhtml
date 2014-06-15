@@ -67,7 +67,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListDockTitle_onStation}"/>
                             </f:facet>
-                            <h:outputText value="#{item.onStation}"/>
+                            <h:outputText value="#{item.onStation.toString()}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{dockController.prepareCreate}" update=":DockCreateForm" oncomplete="PF('DockCreateDialog').show()"/>

@@ -23,10 +23,13 @@
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewTransportLabel_toStation}"/>
-                        <h:outputText value="#{transportController.selected.toStation}" title="#{bundle.ViewTransportTitle_toStation}"/>
+                        <h:outputText value="#{transportController.selected.toStation.toString()}" title="#{bundle.ViewTransportTitle_toStation}"/>
                         <h:outputText value="#{bundle.ViewTransportLabel_fromStation}"/>
-                        <h:outputText value="#{transportController.selected.fromStation}" title="#{bundle.ViewTransportTitle_fromStation}"/>
-                        </p:panelGrid>
+                        <h:outputText value="#{transportController.selected.fromStation.toString()}" title="#{bundle.ViewTransportTitle_fromStation}"/>
+                        <h:outputText value="Userid"/>
+                        <h:outputText value="#{transportController.selected.userId.toString()}" title="Userid"/>
+                        
+                    </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="TransportViewDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

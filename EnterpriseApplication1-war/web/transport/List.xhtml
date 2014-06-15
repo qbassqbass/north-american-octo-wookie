@@ -65,19 +65,19 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTransportTitle_toStation}"/>
                             </f:facet>
-                            <h:outputText value="#{item.toStation}"/>
+                            <h:outputText value="#{item.toStation.toString()}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTransportTitle_fromStation}"/>
                             </f:facet>
-                            <h:outputText value="#{item.fromStation}"/>
+                            <h:outputText value="#{item.fromStation.toString()}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="User"/>
                             </f:facet>
-                            <h:outputText value="#{item.userId}"/>
+                            <h:outputText value="#{item.userId.toString()}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{transportController.prepareCreate}" update=":TransportCreateForm" oncomplete="PF('TransportCreateDialog').show()"/>
