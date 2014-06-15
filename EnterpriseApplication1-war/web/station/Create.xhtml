@@ -12,8 +12,6 @@
             <h:form id="StationCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{stationController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateStationLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{stationController.selected.id}" title="#{bundle.CreateStationTitle_id}" required="true" requiredMessage="#{bundle.CreateStationRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.CreateStationLabel_name}" for="name" />
                         <p:inputText id="name" value="#{stationController.selected.name}" title="#{bundle.CreateStationTitle_name}" />
                         <p:outputLabel value="#{bundle.CreateStationLabel_cargoSize}" for="cargoSize" />
