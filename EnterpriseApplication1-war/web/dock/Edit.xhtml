@@ -12,8 +12,6 @@
             <h:form id="DockEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{dockController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditDockLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{dockController.selected.id}" title="#{bundle.EditDockTitle_id}" required="true" requiredMessage="#{bundle.EditDockRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.EditDockLabel_name}" for="name" />
                         <p:inputText id="name" value="#{dockController.selected.name}" title="#{bundle.EditDockTitle_name}" />
                         <p:outputLabel value="#{bundle.EditDockLabel_type}" for="type" />
