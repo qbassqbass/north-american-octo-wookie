@@ -24,6 +24,7 @@
 
                 <p:layoutUnit position="center">
                     <h:form>
+                        <p:growl id="growl" life="3000" />
                         <p:panelGrid columns="2">
                         <p:outputLabel value="To: " />
                         <p:inputText value="#{emailSender.to}" />
@@ -31,7 +32,7 @@
                         <p:inputText value="#{emailSender.subject}" />
                         <p:outputLabel value="Body: " />
                         <p:inputTextarea value="#{emailSender.body}" />
-                        <p:commandButton action="#{emailSender.sendMail}" value="Send" />
+                        <p:commandButton action="#{emailSender.sendMail}" value="Send" update="growl"/>
                         </p:panelGrid>
                     </h:form>
                 </p:layoutUnit>
