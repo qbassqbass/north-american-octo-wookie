@@ -12,9 +12,7 @@
             <h:form id="PlanetCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{planetController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreatePlanetLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{planetController.selected.id}" title="#{bundle.CreatePlanetTitle_id}" required="true" requiredMessage="#{bundle.CreatePlanetRequiredMessage_id}"/>
-                        <p:outputLabel value="#{bundle.CreatePlanetLabel_name}" for="name" />
+                       <p:outputLabel value="#{bundle.CreatePlanetLabel_name}" for="name" />
                         <p:inputText id="name" value="#{planetController.selected.name}" title="#{bundle.CreatePlanetTitle_name}" />
                         <p:outputLabel value="#{bundle.CreatePlanetLabel_stationCount}" for="stationCount" />
                         <p:inputText id="stationCount" value="#{planetController.selected.stationCount}" title="#{bundle.CreatePlanetTitle_stationCount}" />

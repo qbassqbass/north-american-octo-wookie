@@ -12,8 +12,6 @@
             <h:form id="PlanetEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{planetController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditPlanetLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{planetController.selected.id}" title="#{bundle.EditPlanetTitle_id}" required="true" requiredMessage="#{bundle.EditPlanetRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.EditPlanetLabel_name}" for="name" />
                         <p:inputText id="name" value="#{planetController.selected.name}" title="#{bundle.EditPlanetTitle_name}" />
                         <p:outputLabel value="#{bundle.EditPlanetLabel_stationCount}" for="stationCount" />
