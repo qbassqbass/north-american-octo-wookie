@@ -19,6 +19,7 @@
                     <p:panelMenu>
                         <p:submenu label="Transporty">
                             <p:menuitem value="Dodaj" actionListener="#{transportController.prepareCreate}" update=":TransportCreateForm" oncomplete="PF('TransportCreateDialog').show()"/>
+                            <p:menuitem value="Wyświetl" outcome="/transport/List.xhtml"/>
                         </p:submenu>
                         <p:submenu label="Panel administracyjny">
                             <p:menuitem value="Użytkownicy" outcome="/user/List.xhtml"/>                          
