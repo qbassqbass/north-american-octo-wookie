@@ -1,9 +1,9 @@
 package jsf;
 
-import entity.User;
+import entity.UserCommission;
 import jsf.util.JsfUtil;
 import jsf.util.JsfUtil.PersistAction;
-import ejb.UserFacade;
+import ejb.UserCommissionFacade;
 
 import java.io.Serializable;
 import java.util.List;
@@ -19,23 +19,23 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-@Named("userController")
+@Named("userCommissionController")
 @SessionScoped
-public class UserController implements Serializable {
+public class UserCommissionController implements Serializable {
 
     @EJB
-    private ejb.UserFacade ejbFacade;
-    private List<User> items = null;
-    private User selected;
+    private ejb.UserCommissionFacade ejbFacade;
+    private List<UserCommission> items = null;
+    private UserCommission selected;
 
-    public UserController() {
+    public UserCommissionController() {
     }
 
-    public User getSelected() {
+    public UserCommission getSelected() {
         return selected;
     }
 
-    public void setSelected(User selected) {
+    public void setSelected(UserCommission selected) {
         this.selected = selected;
     }
 
@@ -45,36 +45,36 @@ public class UserController implements Serializable {
     protected void initializeEmbeddableKey() {
     }
 
-    private UserFacade getFacade() {
+    private UserCommissionFacade getFacade() {
         return ejbFacade;
     }
 
-    public User prepareCreate() {
-        selected = new User();
+    public UserCommission prepareCreate() {
+        selected = new UserCommission();
         initializeEmbeddableKey();
         return selected;
     }
 
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UserCreated"));
+        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("UserCommissionCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
     public void update() {
-        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("UserUpdated"));
+        persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("UserCommissionUpdated"));
     }
 
     public void destroy() {
-        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("UserDeleted"));
+        persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("UserCommissionDeleted"));
         if (!JsfUtil.isValidationFailed()) {
             selected = null; // Remove selection
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
 
-    public List<User> getItems() {
+    public List<UserCommission> getItems() {
         if (items == null) {
             items = getFacade().findAll();
         }
@@ -109,29 +109,29 @@ public class UserController implements Serializable {
         }
     }
 
-    public User getUser(java.lang.Integer id) {
+    public UserCommission getUserCommission(java.lang.Integer id) {
         return getFacade().find(id);
     }
 
-    public List<User> getItemsAvailableSelectMany() {
+    public List<UserCommission> getItemsAvailableSelectMany() {
         return getFacade().findAll();
     }
 
-    public List<User> getItemsAvailableSelectOne() {
+    public List<UserCommission> getItemsAvailableSelectOne() {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = User.class)
-    public static class UserControllerConverter implements Converter {
+    @FacesConverter(forClass = UserCommission.class)
+    public static class UserCommissionControllerConverter implements Converter {
 
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            UserController controller = (UserController) facesContext.getApplication().getELResolver().
-                    getValue(facesContext.getELContext(), null, "userController");
-            return controller.getUser(getKey(value));
+            UserCommissionController controller = (UserCommissionController) facesContext.getApplication().getELResolver().
+                    getValue(facesContext.getELContext(), null, "userCommissionController");
+            return controller.getUserCommission(getKey(value));
         }
 
         java.lang.Integer getKey(String value) {
@@ -151,11 +151,11 @@ public class UserController implements Serializable {
             if (object == null) {
                 return null;
             }
-            if (object instanceof User) {
-                User o = (User) object;
+            if (object instanceof UserCommission) {
+                UserCommission o = (UserCommission) object;
                 return getStringKey(o.getId());
             } else {
-                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), User.class.getName()});
+                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), UserCommission.class.getName()});
                 return null;
             }
         }

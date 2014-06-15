@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UserCommissionViewDlg" widgetVar="UserCommissionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewUserCommissionTitle}">
+            <h:form id="UserCommissionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{userCommissionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewUserCommissionLabel_id}"/>
+                        <h:outputText value="#{userCommissionController.selected.id}" title="#{bundle.ViewUserCommissionTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewUserCommissionLabel_userId}"/>
+                        <h:outputText value="#{userCommissionController.selected.userId}" title="#{bundle.ViewUserCommissionTitle_userId}"/>
+                        <h:outputText value="#{bundle.ViewUserCommissionLabel_transportId}"/>
+                        <h:outputText value="#{userCommissionController.selected.transportId}" title="#{bundle.ViewUserCommissionTitle_transportId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="UserCommissionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

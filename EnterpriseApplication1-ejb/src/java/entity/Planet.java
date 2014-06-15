@@ -48,9 +48,9 @@ public class Planet implements Serializable {
     private Integer stationCount;
     @OneToMany(mappedBy = "onPlanet")
     private Collection<Station> stationCollection;
-    @OneToMany(mappedBy = "fromPlanet")
-    private Collection<Transport> transportCollection;
     @OneToMany(mappedBy = "toPlanet")
+    private Collection<Transport> transportCollection;
+    @OneToMany(mappedBy = "fromPlanet")
     private Collection<Transport> transportCollection1;
 
     public Planet() {
@@ -133,8 +133,7 @@ public class Planet implements Serializable {
 
     @Override
     public String toString() {
-//        return "entity.Planet[ id=" + id + ", name=" + name + " ]";
-        return "Planet ["+name+"]";
+        return "Planet[ " + name + " ]";
     }
     
 }

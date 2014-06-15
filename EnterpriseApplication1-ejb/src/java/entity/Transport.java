@@ -7,8 +7,10 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,10 +20,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -48,18 +52,22 @@ public class Transport implements Serializable {
     @Column(name = "endDate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
-    @JoinColumn(name = "toStation", referencedColumnName = "id")
-    @ManyToOne
-    private Station toStation;
-    @JoinColumn(name = "fromPlanet", referencedColumnName = "id")
-    @ManyToOne
-    private Planet fromPlanet;
-    @JoinColumn(name = "fromStation", referencedColumnName = "id")
-    @ManyToOne
-    private Station fromStation;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "transportId")
+    private Collection<FinalCommission> finalCommissionCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "transportId")
+    private Collection<UserCommission> userCommissionCollection;
     @JoinColumn(name = "toPlanet", referencedColumnName = "id")
     @ManyToOne
     private Planet toPlanet;
+    @JoinColumn(name = "fromStation", referencedColumnName = "id")
+    @ManyToOne
+    private Station fromStation;
+    @JoinColumn(name = "fromPlanet", referencedColumnName = "id")
+    @ManyToOne
+    private Planet fromPlanet;
+    @JoinColumn(name = "toStation", referencedColumnName = "id")
+    @ManyToOne
+    private Station toStation;
 
     public Transport() {
     }
@@ -92,20 +100,30 @@ public class Transport implements Serializable {
         this.endDate = endDate;
     }
 
-    public Station getToStation() {
-        return toStation;
+    @XmlTransient
+    public Collection<FinalCommission> getFinalCommissionCollection() {
+        return finalCommissionCollection;
     }
 
-    public void setToStation(Station toStation) {
-        this.toStation = toStation;
+    public void setFinalCommissionCollection(Collection<FinalCommission> finalCommissionCollection) {
+        this.finalCommissionCollection = finalCommissionCollection;
     }
 
-    public Planet getFromPlanet() {
-        return fromPlanet;
+    @XmlTransient
+    public Collection<UserCommission> getUserCommissionCollection() {
+        return userCommissionCollection;
     }
 
-    public void setFromPlanet(Planet fromPlanet) {
-        this.fromPlanet = fromPlanet;
+    public void setUserCommissionCollection(Collection<UserCommission> userCommissionCollection) {
+        this.userCommissionCollection = userCommissionCollection;
+    }
+
+    public Planet getToPlanet() {
+        return toPlanet;
+    }
+
+    public void setToPlanet(Planet toPlanet) {
+        this.toPlanet = toPlanet;
     }
 
     public Station getFromStation() {
@@ -116,12 +134,20 @@ public class Transport implements Serializable {
         this.fromStation = fromStation;
     }
 
-    public Planet getToPlanet() {
-        return toPlanet;
+    public Planet getFromPlanet() {
+        return fromPlanet;
     }
 
-    public void setToPlanet(Planet toPlanet) {
-        this.toPlanet = toPlanet;
+    public void setFromPlanet(Planet fromPlanet) {
+        this.fromPlanet = fromPlanet;
+    }
+
+    public Station getToStation() {
+        return toStation;
+    }
+
+    public void setToStation(Station toStation) {
+        this.toStation = toStation;
     }
 
     @Override
@@ -147,7 +173,6 @@ public class Transport implements Serializable {
     @Override
     public String toString() {
         return "entity.Transport[ id=" + id + " ]";
-//        return "Transport ["+name+"]";
     }
     
 }

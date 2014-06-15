@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FinalCommissionCreateDlg" widgetVar="FinalCommissionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateFinalCommissionTitle}">
+            <h:form id="FinalCommissionCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{finalCommissionController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateFinalCommissionLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{finalCommissionController.selected.id}" title="#{bundle.CreateFinalCommissionTitle_id}" required="true" requiredMessage="#{bundle.CreateFinalCommissionRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateFinalCommissionLabel_dockId}" for="dockId" />
+                        <p:selectOneMenu id="dockId" value="#{finalCommissionController.selected.dockId}" >
+                            <f:selectItems value="#{dockController.itemsAvailableSelectOne}"
+                                           var="dockIdItem"
+                                           itemValue="#{dockIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFinalCommissionLabel_adminId}" for="adminId" />
+                        <p:selectOneMenu id="adminId" value="#{finalCommissionController.selected.adminId}" required="true" requiredMessage="#{bundle.EditFinalCommissionRequiredMessage_adminId}">
+                            <f:selectItems value="#{userController.itemsAvailableSelectOne}"
+                                           var="adminIdItem"
+                                           itemValue="#{adminIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFinalCommissionLabel_transportId}" for="transportId" />
+                        <p:selectOneMenu id="transportId" value="#{finalCommissionController.selected.transportId}" required="true" requiredMessage="#{bundle.EditFinalCommissionRequiredMessage_transportId}">
+                            <f:selectItems value="#{transportController.itemsAvailableSelectOne}"
+                                           var="transportIdItem"
+                                           itemValue="#{transportIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateFinalCommissionLabel_shipId}" for="shipId" />
+                        <p:selectOneMenu id="shipId" value="#{finalCommissionController.selected.shipId}" required="true" requiredMessage="#{bundle.EditFinalCommissionRequiredMessage_shipId}">
+                            <f:selectItems value="#{shipController.itemsAvailableSelectOne}"
+                                           var="shipIdItem"
+                                           itemValue="#{shipIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{finalCommissionController.create}" value="#{bundle.Save}" update="display,:FinalCommissionListForm:datalist,:growl" oncomplete="handleSubmit(args,'FinalCommissionCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FinalCommissionCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

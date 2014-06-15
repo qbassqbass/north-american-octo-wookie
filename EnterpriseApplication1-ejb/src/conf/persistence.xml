@@ -8,6 +8,9 @@
     <class>entity.Station</class>
     <class>entity.Transport</class>
     <class>entity.User</class>
+    <class>entity.FinalCommission</class>
+    <class>entity.UserCommission</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties/>
   </persistence-unit>
 </persistence>

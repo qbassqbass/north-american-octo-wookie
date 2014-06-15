@@ -7,6 +7,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,9 +18,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -48,6 +51,8 @@ public class Dock implements Serializable {
     private Integer type;
     @Column(name = "efficiency")
     private Integer efficiency;
+    @OneToMany(mappedBy = "dockId")
+    private Collection<FinalCommission> finalCommissionCollection;
     @JoinColumn(name = "onStation", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Station onStation;
@@ -91,6 +96,15 @@ public class Dock implements Serializable {
         this.efficiency = efficiency;
     }
 
+    @XmlTransient
+    public Collection<FinalCommission> getFinalCommissionCollection() {
+        return finalCommissionCollection;
+    }
+
+    public void setFinalCommissionCollection(Collection<FinalCommission> finalCommissionCollection) {
+        this.finalCommissionCollection = finalCommissionCollection;
+    }
+
     public Station getOnStation() {
         return onStation;
     }
@@ -121,8 +135,7 @@ public class Dock implements Serializable {
 
     @Override
     public String toString() {
-//        return "entity.Dock[ id=" + id + " ]";
-        return "Dock ["+name+"]";
+        return "entity.Dock[ id=" + id + " ]";
     }
     
 }

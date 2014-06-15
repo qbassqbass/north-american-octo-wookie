@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FinalCommissionViewDlg" widgetVar="FinalCommissionViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewFinalCommissionTitle}">
+            <h:form id="FinalCommissionViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{finalCommissionController.selected != null}">
+                        <h:outputText value="#{bundle.ViewFinalCommissionLabel_id}"/>
+                        <h:outputText value="#{finalCommissionController.selected.id}" title="#{bundle.ViewFinalCommissionTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewFinalCommissionLabel_dockId}"/>
+                        <h:outputText value="#{finalCommissionController.selected.dockId}" title="#{bundle.ViewFinalCommissionTitle_dockId}"/>
+                        <h:outputText value="#{bundle.ViewFinalCommissionLabel_adminId}"/>
+                        <h:outputText value="#{finalCommissionController.selected.adminId}" title="#{bundle.ViewFinalCommissionTitle_adminId}"/>
+                        <h:outputText value="#{bundle.ViewFinalCommissionLabel_transportId}"/>
+                        <h:outputText value="#{finalCommissionController.selected.transportId}" title="#{bundle.ViewFinalCommissionTitle_transportId}"/>
+                        <h:outputText value="#{bundle.ViewFinalCommissionLabel_shipId}"/>
+                        <h:outputText value="#{finalCommissionController.selected.shipId}" title="#{bundle.ViewFinalCommissionTitle_shipId}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="FinalCommissionViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

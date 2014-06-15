@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FinalCommissionEditDlg" widgetVar="FinalCommissionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditFinalCommissionTitle}">
+            <h:form id="FinalCommissionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{finalCommissionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditFinalCommissionLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{finalCommissionController.selected.id}" title="#{bundle.EditFinalCommissionTitle_id}" required="true" requiredMessage="#{bundle.EditFinalCommissionRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditFinalCommissionLabel_dockId}" for="dockId" />
+                        <p:selectOneMenu id="dockId" value="#{finalCommissionController.selected.dockId}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{dockController.itemsAvailableSelectOne}"
+                                           var="dockIdItem"
+                                           itemValue="#{dockIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditFinalCommissionLabel_adminId}" for="adminId" />
+                        <p:selectOneMenu id="adminId" value="#{finalCommissionController.selected.adminId}" required="true" requiredMessage="#{bundle.EditFinalCommissionRequiredMessage_adminId}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{userController.itemsAvailableSelectOne}"
+                                           var="adminIdItem"
+                                           itemValue="#{adminIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditFinalCommissionLabel_transportId}" for="transportId" />
+                        <p:selectOneMenu id="transportId" value="#{finalCommissionController.selected.transportId}" required="true" requiredMessage="#{bundle.EditFinalCommissionRequiredMessage_transportId}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{transportController.itemsAvailableSelectOne}"
+                                           var="transportIdItem"
+                                           itemValue="#{transportIdItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditFinalCommissionLabel_shipId}" for="shipId" />
+                        <p:selectOneMenu id="shipId" value="#{finalCommissionController.selected.shipId}" required="true" requiredMessage="#{bundle.EditFinalCommissionRequiredMessage_shipId}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{shipController.itemsAvailableSelectOne}"
+                                           var="shipIdItem"
+                                           itemValue="#{shipIdItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{finalCommissionController.update}" value="#{bundle.Save}" update="display,:FinalCommissionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'FinalCommissionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FinalCommissionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

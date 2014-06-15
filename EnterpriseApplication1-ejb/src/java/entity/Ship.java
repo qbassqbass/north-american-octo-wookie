@@ -7,7 +7,9 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,9 +17,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -50,6 +54,8 @@ public class Ship implements Serializable {
     private Integer capacity;
     @Column(name = "type")
     private Integer type;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "shipId")
+    private Collection<FinalCommission> finalCommissionCollection;
 
     public Ship() {
     }
@@ -98,6 +104,15 @@ public class Ship implements Serializable {
         this.type = type;
     }
 
+    @XmlTransient
+    public Collection<FinalCommission> getFinalCommissionCollection() {
+        return finalCommissionCollection;
+    }
+
+    public void setFinalCommissionCollection(Collection<FinalCommission> finalCommissionCollection) {
+        this.finalCommissionCollection = finalCommissionCollection;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -120,8 +135,7 @@ public class Ship implements Serializable {
 
     @Override
     public String toString() {
-//        return "entity.Ship[ id=" + id + " ]";
-        return "Ship ["+name+"]";
+        return "Ship[ " + name + " ]";
     }
     
 }
