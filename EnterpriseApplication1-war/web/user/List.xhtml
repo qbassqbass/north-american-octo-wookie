@@ -17,19 +17,22 @@
                 </p:layoutUnit>
 
 
-                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                <p:layoutUnit position="west" size="175" header="Menu" collapsible="true">
                       <p:growl id="growl" life="3000" />
                         <ui:include src="/menu.xhtml"></ui:include>
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center">
                    <h:form id="UserListForm">
-                <p:panel header="#{bundle.ListUserTitle}">
+                <p:panel header="Lista użytkowników">
+                    <p:commandButton value="Export to pdf" ajax="false">
+                        <p:dataExporter type="pdf" target="datalist" fileName="users" />
+                    </p:commandButton>
                     <p:dataTable id="datalist" value="#{userController.items}" var="item"
                                  selectionMode="single" selection="#{userController.selected}"
                                  paginator="true"
                                  rowKey="#{item.id}"
-                                 rows="10"
+                                 rows="15"
                                  rowsPerPageTemplate="10,20,30,40,50"
                                  >
 
