@@ -23,26 +23,12 @@
                                            var="toStationItem"
                                            itemValue="#{toStationItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditTransportLabel_fromPlanet}" for="fromPlanet" />
-                        <p:selectOneMenu id="fromPlanet" value="#{transportController.selected.fromPlanet}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{planetController.itemsAvailableSelectOne}"
-                                           var="fromPlanetItem"
-                                           itemValue="#{fromPlanetItem}"/>
-                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditTransportLabel_fromStation}" for="fromStation" />
                         <p:selectOneMenu id="fromStation" value="#{transportController.selected.fromStation}" >
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{stationController.itemsAvailableSelectOne}"
                                            var="fromStationItem"
                                            itemValue="#{fromStationItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditTransportLabel_toPlanet}" for="toPlanet" />
-                        <p:selectOneMenu id="toPlanet" value="#{transportController.selected.toPlanet}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{planetController.itemsAvailableSelectOne}"
-                                           var="toPlanetItem"
-                                           itemValue="#{toPlanetItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{transportController.update}" value="#{bundle.Save}" update="display,:TransportListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TransportEditDialog');"/>

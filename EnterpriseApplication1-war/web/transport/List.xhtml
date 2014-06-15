@@ -66,21 +66,9 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTransportTitle_fromPlanet}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.fromPlanet}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListTransportTitle_fromStation}"/>
                             </f:facet>
                             <h:outputText value="#{item.fromStation}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListTransportTitle_toPlanet}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.toPlanet}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{transportController.prepareCreate}" update=":TransportCreateForm" oncomplete="PF('TransportCreateDialog').show()"/>

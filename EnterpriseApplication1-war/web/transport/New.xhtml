@@ -9,7 +9,7 @@
         <title>Space Station Galaja</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
-    <h:body>
+    <h:body onload="TransportCreateDlg.show()">
         <p:layout fullPage="true">
 
                 <p:layoutUnit position="north" size="230" collapsible="true">
@@ -23,7 +23,7 @@
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center">
-               <p:dialog id="TransportCreateDlg" widgetVar="TransportCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTransportTitle}">
+                    <p:dialog id="TransportCreateDlg" widgetVar="TransportCreateDialog" closable="false" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTransportTitle}">
                <h:form id="TransportCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{transportController.selected != null}">
@@ -55,7 +55,6 @@
                 </h:panelGroup>
             </h:form>    
                 </p:dialog>
-
                 </p:layoutUnit>
             </p:layout>
 

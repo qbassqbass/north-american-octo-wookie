@@ -24,13 +24,9 @@
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewTransportLabel_toStation}"/>
                         <h:outputText value="#{transportController.selected.toStation}" title="#{bundle.ViewTransportTitle_toStation}"/>
-                        <h:outputText value="#{bundle.ViewTransportLabel_fromPlanet}"/>
-                        <h:outputText value="#{transportController.selected.fromPlanet}" title="#{bundle.ViewTransportTitle_fromPlanet}"/>
                         <h:outputText value="#{bundle.ViewTransportLabel_fromStation}"/>
                         <h:outputText value="#{transportController.selected.fromStation}" title="#{bundle.ViewTransportTitle_fromStation}"/>
-                        <h:outputText value="#{bundle.ViewTransportLabel_toPlanet}"/>
-                        <h:outputText value="#{transportController.selected.toPlanet}" title="#{bundle.ViewTransportTitle_toPlanet}"/>
-                    </p:panelGrid>
+                        </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="TransportViewDialog.hide()"/>
                 </h:panelGroup>
             </h:form>

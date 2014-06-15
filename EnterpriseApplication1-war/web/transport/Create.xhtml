@@ -12,6 +12,12 @@
             <h:form id="TransportCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{transportController.selected != null}">
+                        <p:outputLabel value="User:" for="userId" />
+                        <p:selectOneMenu id="userId" value="#{transportController.selected.userId}" >
+                            <f:selectItems value="#{userController.itemsAvailableSelectOne}"
+                                           var="userIdItem"
+                                           itemValue="#{usedIdItem}"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateTransportLabel_startDate}" for="startDate" />
                         <p:calendar id="startDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{transportController.selected.startDate}" title="#{bundle.EditTransportTitle_startDate}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateTransportLabel_endDate}" for="endDate" />
@@ -22,23 +28,11 @@
                                            var="toStationItem"
                                            itemValue="#{toStationItem}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateTransportLabel_fromPlanet}" for="fromPlanet" />
-                        <p:selectOneMenu id="fromPlanet" value="#{transportController.selected.fromPlanet}" >
-                            <f:selectItems value="#{planetController.itemsAvailableSelectOne}"
-                                           var="fromPlanetItem"
-                                           itemValue="#{fromPlanetItem}"/>
-                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateTransportLabel_fromStation}" for="fromStation" />
                         <p:selectOneMenu id="fromStation" value="#{transportController.selected.fromStation}" >
                             <f:selectItems value="#{stationController.itemsAvailableSelectOne}"
                                            var="fromStationItem"
                                            itemValue="#{fromStationItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateTransportLabel_toPlanet}" for="toPlanet" />
-                        <p:selectOneMenu id="toPlanet" value="#{transportController.selected.toPlanet}" >
-                            <f:selectItems value="#{planetController.itemsAvailableSelectOne}"
-                                           var="toPlanetItem"
-                                           itemValue="#{toPlanetItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{transportController.create}" value="#{bundle.Save}" update="display,:TransportListForm:datalist,:growl" oncomplete="handleSubmit(args,'TransportCreateDialog');"/>
