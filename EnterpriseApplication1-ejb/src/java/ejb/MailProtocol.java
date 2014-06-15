@@ -6,17 +6,12 @@
 
 package ejb;
 
-import javax.ejb.Stateless;
-import javax.ejb.LocalBean;
-
 /**
  *
  * @author Jakub
  */
-@Stateless
-@LocalBean
-public class SessionBean {
-
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+public enum MailProtocol {
+    SMTP,
+    SMTPS,
+    TLS
 }
