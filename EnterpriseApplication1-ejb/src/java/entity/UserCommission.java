@@ -37,12 +37,12 @@ public class UserCommission implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @JoinColumn(name = "userId", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private User userId;
     @JoinColumn(name = "transportId", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Transport transportId;
+    @JoinColumn(name = "userId", referencedColumnName = "id")
+    @ManyToOne
+    private User userId;
 
     public UserCommission() {
     }
@@ -59,20 +59,20 @@ public class UserCommission implements Serializable {
         this.id = id;
     }
 
-    public User getUserId() {
-        return userId;
-    }
-
-    public void setUserId(User userId) {
-        this.userId = userId;
-    }
-
     public Transport getTransportId() {
         return transportId;
     }
 
     public void setTransportId(Transport transportId) {
         this.transportId = transportId;
+    }
+
+    public User getUserId() {
+        return userId;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
     }
 
     @Override

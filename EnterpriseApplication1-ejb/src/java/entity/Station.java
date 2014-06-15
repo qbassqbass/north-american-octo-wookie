@@ -52,9 +52,9 @@ public class Station implements Serializable {
     @JoinColumn(name = "onPlanet", referencedColumnName = "id")
     @ManyToOne
     private Planet onPlanet;
-    @OneToMany(mappedBy = "fromStation")
-    private Collection<Transport> transportCollection;
     @OneToMany(mappedBy = "toStation")
+    private Collection<Transport> transportCollection;
+    @OneToMany(mappedBy = "fromStation")
     private Collection<Transport> transportCollection1;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "onStation")
     private Collection<Dock> dockCollection;

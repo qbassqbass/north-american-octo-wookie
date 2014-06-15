@@ -135,7 +135,7 @@ public class Dock implements Serializable {
 
     @Override
     public String toString() {
-        return "Dock[ " + name + " ]";
+        return "Dock[ " + name + " on " + onStation.getName() + " on " + onStation.getOnPlanet().getName() + " ]";
     }
     
 }

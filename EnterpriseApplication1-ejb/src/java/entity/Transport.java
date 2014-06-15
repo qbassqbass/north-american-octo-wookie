@@ -56,18 +56,15 @@ public class Transport implements Serializable {
     private Collection<FinalCommission> finalCommissionCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "transportId")
     private Collection<UserCommission> userCommissionCollection;
-    @JoinColumn(name = "toPlanet", referencedColumnName = "id")
-    @ManyToOne
-    private Planet toPlanet;
-    @JoinColumn(name = "fromStation", referencedColumnName = "id")
-    @ManyToOne
-    private Station fromStation;
-    @JoinColumn(name = "fromPlanet", referencedColumnName = "id")
-    @ManyToOne
-    private Planet fromPlanet;
     @JoinColumn(name = "toStation", referencedColumnName = "id")
     @ManyToOne
     private Station toStation;
+    @JoinColumn(name = "fromStation", referencedColumnName = "id")
+    @ManyToOne
+    private Station fromStation;
+    @JoinColumn(name = "userId", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private User userId;
 
     public Transport() {
     }
@@ -118,12 +115,12 @@ public class Transport implements Serializable {
         this.userCommissionCollection = userCommissionCollection;
     }
 
-    public Planet getToPlanet() {
-        return toPlanet;
+    public Station getToStation() {
+        return toStation;
     }
 
-    public void setToPlanet(Planet toPlanet) {
-        this.toPlanet = toPlanet;
+    public void setToStation(Station toStation) {
+        this.toStation = toStation;
     }
 
     public Station getFromStation() {
@@ -134,20 +131,12 @@ public class Transport implements Serializable {
         this.fromStation = fromStation;
     }
 
-    public Planet getFromPlanet() {
-        return fromPlanet;
+    public User getUserId() {
+        return userId;
     }
 
-    public void setFromPlanet(Planet fromPlanet) {
-        this.fromPlanet = fromPlanet;
-    }
-
-    public Station getToStation() {
-        return toStation;
-    }
-
-    public void setToStation(Station toStation) {
-        this.toStation = toStation;
+    public void setUserId(User userId) {
+        this.userId = userId;
     }
 
     @Override

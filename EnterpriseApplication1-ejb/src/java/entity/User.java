@@ -53,8 +53,10 @@ public class User implements Serializable {
     private Integer type;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "adminId")
     private Collection<FinalCommission> finalCommissionCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    @OneToMany(mappedBy = "userId")
     private Collection<UserCommission> userCommissionCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    private Collection<Transport> transportCollection;
 
     public User() {
     }
@@ -111,6 +113,15 @@ public class User implements Serializable {
 
     public void setUserCommissionCollection(Collection<UserCommission> userCommissionCollection) {
         this.userCommissionCollection = userCommissionCollection;
+    }
+
+    @XmlTransient
+    public Collection<Transport> getTransportCollection() {
+        return transportCollection;
+    }
+
+    public void setTransportCollection(Collection<Transport> transportCollection) {
+        this.transportCollection = transportCollection;
     }
 
     @Override

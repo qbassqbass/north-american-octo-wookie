@@ -48,10 +48,6 @@ public class Planet implements Serializable {
     private Integer stationCount;
     @OneToMany(mappedBy = "onPlanet")
     private Collection<Station> stationCollection;
-    @OneToMany(mappedBy = "toPlanet")
-    private Collection<Transport> transportCollection;
-    @OneToMany(mappedBy = "fromPlanet")
-    private Collection<Transport> transportCollection1;
 
     public Planet() {
     }
@@ -91,24 +87,6 @@ public class Planet implements Serializable {
 
     public void setStationCollection(Collection<Station> stationCollection) {
         this.stationCollection = stationCollection;
-    }
-
-    @XmlTransient
-    public Collection<Transport> getTransportCollection() {
-        return transportCollection;
-    }
-
-    public void setTransportCollection(Collection<Transport> transportCollection) {
-        this.transportCollection = transportCollection;
-    }
-
-    @XmlTransient
-    public Collection<Transport> getTransportCollection1() {
-        return transportCollection1;
-    }
-
-    public void setTransportCollection1(Collection<Transport> transportCollection1) {
-        this.transportCollection1 = transportCollection1;
     }
 
     @Override
