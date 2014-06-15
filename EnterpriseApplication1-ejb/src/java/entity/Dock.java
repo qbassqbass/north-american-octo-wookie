@@ -121,7 +121,8 @@ public class Dock implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Dock[ id=" + id + " ]";
+//        return "entity.Dock[ id=" + id + " ]";
+        return "Dock ["+name+"]";
     }
     
 }
