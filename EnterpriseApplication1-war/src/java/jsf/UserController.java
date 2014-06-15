@@ -18,6 +18,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import javax.persistence.Transient;
 
 @Named("userController")
 @SessionScoped
@@ -160,6 +161,38 @@ public class UserController implements Serializable {
             }
         }
 
+    }
+    @Transient
+    private String uName;
+    @Transient
+    private String uPassword;
+
+    public String getuName() {
+        return uName;
+    }
+
+    public void setuName(String uName) {
+        this.uName = uName;
+    }
+
+    public String getuPassword() {
+        return uPassword;
+    }
+
+    public void setuPassword(String uPassword) {
+        this.uPassword = uPassword;
+    }
+    
+    
+    public String checkUser(){
+        User u = new User();
+        u.setName(uName);
+        u.setPassword(uPassword);
+        
+        for(User x : getItems()){
+            if(x.equals(u)) return "OK";
+        }
+        return "ERR";
     }
 
 }
