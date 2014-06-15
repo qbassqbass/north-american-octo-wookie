@@ -24,7 +24,10 @@
 
                 <p:layoutUnit position="center">
                    <h:form id="UserListForm">
-                <p:panel header="#{bundle.ListUserTitle}">
+                <p:panel header="Lista użytkowników">
+                    <p:commandButton value="Export to pdf" ajax="false">
+                        <p:dataExporter type="pdf" target="datalist" fileName="users" preProcessor="#{pdfLogo.preProcessPDF}"/>
+                    </p:commandButton>
                     <p:dataTable id="datalist" value="#{userController.items}" var="item"
                                  selectionMode="single" selection="#{userController.selected}"
                                  paginator="true"

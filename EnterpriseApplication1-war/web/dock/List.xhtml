@@ -24,7 +24,10 @@
 
                 <p:layoutUnit position="center">
                    <h:form id="DockListForm">
-                <p:panel header="#{bundle.ListDockTitle}">
+                <p:panel header="Lista doków">
+                    <p:commandButton value="Export to pdf" ajax="false">
+                        <p:dataExporter type="pdf" target="datalist" fileName="Dock" preProcessor="#{pdfLogo.preProcessPDF}"/>
+                    </p:commandButton>
                     <p:dataTable id="datalist" value="#{dockController.items}" var="item"
                                  selectionMode="single" selection="#{dockController.selected}"
                                  paginator="true"

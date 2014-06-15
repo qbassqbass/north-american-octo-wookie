@@ -25,6 +25,9 @@
                 <p:layoutUnit position="center">
                 <h:form id="TransportListForm">
                 <p:panel header="Lista transportów">
+                    <p:commandButton value="Export to pdf" ajax="false">
+                        <p:dataExporter type="pdf" target="datalist" fileName="transport" preProcessor="#{pdfLogo.preProcessPDF}"/>
+                    </p:commandButton>
                     <p:dataTable id="datalist" value="#{transportController.items}" var="item"
                                  selectionMode="single" selection="#{transportController.selected}"
                                  paginator="true"
@@ -69,6 +72,12 @@
                                 <h:outputText value="#{bundle.ListTransportTitle_fromStation}"/>
                             </f:facet>
                             <h:outputText value="#{item.fromStation}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="User"/>
+                            </f:facet>
+                            <h:outputText value="#{item.userId}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{transportController.prepareCreate}" update=":TransportCreateForm" oncomplete="PF('TransportCreateDialog').show()"/>

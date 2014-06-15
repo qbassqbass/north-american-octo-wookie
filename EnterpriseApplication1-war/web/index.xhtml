@@ -3,23 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Space Station Galaja</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
-    <h:body onload="log.show()">
-        <p:dialog widgetVar="log" modal="true" closable="false" resizable="false">
-            <h:form>
-            <p:panelGrid columns="2" >
-                <p:outputLabel value="Login" />
-                <p:inputText value="#{passwordView.login}" />
-                <p:outputLabel value="Hasło" />
-                <p:password value="#{passwordView.password2}"/>
-                <p:commandButton value="Potwierdź" action="#{passwordView.submit()}" />
-             </p:panelGrid>
-            </h:form>
-        </p:dialog>
+    <h:body >
+        
         <p:layout fullPage="true">
 
                 <p:layoutUnit position="north" size="230" collapsible="true">
