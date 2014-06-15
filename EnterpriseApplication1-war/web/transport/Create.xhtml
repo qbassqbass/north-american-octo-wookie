@@ -12,8 +12,6 @@
             <h:form id="TransportCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{transportController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateTransportLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{transportController.selected.id}" title="#{bundle.CreateTransportTitle_id}" required="true" requiredMessage="#{bundle.CreateTransportRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.CreateTransportLabel_startDate}" for="startDate" />
                         <p:calendar id="startDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{transportController.selected.startDate}" title="#{bundle.EditTransportTitle_startDate}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateTransportLabel_endDate}" for="endDate" />
