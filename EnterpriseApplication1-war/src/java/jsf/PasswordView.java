@@ -8,6 +8,7 @@ package jsf;
 
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
+import javax.faces.bean.ManagedProperty;
 
 /**
  *
@@ -30,6 +31,7 @@ public class PasswordView {
     public void setUserController(UserController userController) {
         this.userController = userController;
     }
+    @ManagedProperty(value = "#{userController}")
     private UserController userController;
     
     public String getLogin() {

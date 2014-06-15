@@ -1,9 +1,12 @@
 package jsf;
 
 import entity.Transport;
+import entity.UserCommission;
 import jsf.util.JsfUtil;
 import jsf.util.JsfUtil.PersistAction;
 import ejb.TransportFacade;
+import ejb.UserCommissionFacade;
+import entity.User;
 
 import java.io.Serializable;
 import java.util.List;
@@ -25,6 +28,12 @@ public class TransportController implements Serializable {
 
     @EJB
     private ejb.TransportFacade ejbFacade;
+    @EJB
+    private ejb.UserCommissionFacade ucFacade;
+
+    public UserCommissionFacade getUcFacade() {
+        return ucFacade;
+    }
     private List<Transport> items = null;
     private Transport selected;
 
