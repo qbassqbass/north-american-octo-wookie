@@ -28,11 +28,11 @@ import javax.mail.internet.MimeMessage;
 public class MailSession {
     
     private int port = 465;
-    private String host = "smtp.example.com";
-    private String from = "matt@example.com";
+    private String host = "smtp.gmail.com";
+    private String from = "qbass.rpi@gmail.com";
     private boolean auth = true;
-    private String username = "matt@example.com";
-    private String password = "secretpw";
+    private String username = "qbass.rpi@gmail.com";
+    private String password = "windowsshit";
     private MailProtocol protocol = MailProtocol.SMTPS;
     private boolean debug = true;
     
