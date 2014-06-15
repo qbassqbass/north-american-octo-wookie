@@ -133,7 +133,8 @@ public class Planet implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Planet[ id=" + id + " ]";
+//        return "entity.Planet[ id=" + id + ", name=" + name + " ]";
+        return "Planet ["+name+"]";
     }
     
 }
