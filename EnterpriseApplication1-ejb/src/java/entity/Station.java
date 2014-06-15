@@ -147,7 +147,8 @@ public class Station implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Station[ id=" + id + " ]";
+//        return "entity.Station[ id=" + id + " ]";
+        return "Station ["+name+"]";
     }
     
 }

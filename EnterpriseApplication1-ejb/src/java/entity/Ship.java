@@ -120,7 +120,8 @@ public class Ship implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Ship[ id=" + id + " ]";
+//        return "entity.Ship[ id=" + id + " ]";
+        return "Ship ["+name+"]";
     }
     
 }

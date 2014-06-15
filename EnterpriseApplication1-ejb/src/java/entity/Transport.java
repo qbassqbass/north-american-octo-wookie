@@ -147,6 +147,7 @@ public class Transport implements Serializable {
     @Override
     public String toString() {
         return "entity.Transport[ id=" + id + " ]";
+//        return "Transport ["+name+"]";
     }
     
 }
