@@ -46,25 +46,25 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFinalCommissionTitle_dockId}"/>
                             </f:facet>
-                            <h:outputText value="#{item.dockId}"/>
+                            <h:outputText value="#{item.dockId.toString()}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFinalCommissionTitle_adminId}"/>
                             </f:facet>
-                            <h:outputText value="#{item.adminId}"/>
+                            <h:outputText value="#{item.adminId.toString()}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFinalCommissionTitle_transportId}"/>
                             </f:facet>
-                            <h:outputText value="#{item.transportId}"/>
+                            <h:outputText value="#{item.transportId.toString()}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFinalCommissionTitle_shipId}"/>
                             </f:facet>
-                            <h:outputText value="#{item.shipId}"/>
+                            <h:outputText value="#{item.shipId.toString()}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{finalCommissionController.prepareCreate}" update=":FinalCommissionCreateForm" oncomplete="PF('FinalCommissionCreateDialog').show()"/>
