@@ -32,7 +32,7 @@ public class MailSession {
     private String from = "qbass.rpi@gmail.com";
     private boolean auth = true;
     private String username = "qbass.rpi@gmail.com";
-    private String password = "windowsshit";
+    private String password = "";
     private MailProtocol protocol = MailProtocol.SMTPS;
     private boolean debug = true;
     
